@@ -1,0 +1,14 @@
+name: push
+on: 
+  push:
+    branches:
+      - master
+      - main
+    tags:        
+      - v*
+
+jobs:
+  call-workflow:
+    uses: davgordo-open-idp/shared-workflows/.github/workflows/quarkus-ci-cd.yaml@main
+    with:
+      app: 

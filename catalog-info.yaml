@@ -1,0 +1,33 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: "quarkus-service"
+  description: "A service written with the Quarkus framework"
+  tags:
+    - java
+    - quarkus
+  links:
+    - url: https://eclipse-che.apps.cluster-zhg2f.zhg2f.sandbox628.opentlc.com/#https://github.com/davgordo-open-idp/quarkus-service?devfilePath=.devfilev2-theia.yaml
+      title: CodeReady Workspaces (Eclipse Theia)
+      icon: web
+    - url: https://eclipse-che.apps.cluster-zhg2f.zhg2f.sandbox628.opentlc.com/#https://github.com/davgordo-open-idp/quarkus-service?che-editor=che-incubator/che-code/insiders&devfilePath=.devfilev2-vscode.yaml
+      title: CodeReady Workspaces (VS Code)
+      icon: web    
+    - url: https://eclipse-che.apps.cluster-zhg2f.zhg2f.sandbox628.opentlc.com/#https://github.com/davgordo-open-idp/quarkus-service?che-editor=che-incubator/che-idea/next&devfilePath=.devfilev2-intellij.yaml
+      title: CodeReady Workspaces (JetBrains IntelliJ)
+      icon: web
+    - url: https://grafana-route-user-workload-grafana.apps.cluster-zhg2f.zhg2f.sandbox628.opentlc.com/d/AqEG4weWk/error-budget?orgId=1&refresh=5s&var-virtual_service=quarkus-service.-prod.svc.cluster.local&var-time_interval=1h&var-SLO=95&var-latency=1000
+      title: SRE Metrics (production)
+      icon: web
+  annotations:
+    'github.com/project-slug': davgordo-open-idp/quarkus-service
+    'backstage.io/kubernetes-id': quarkus-service
+    'backstage.io/techdocs-ref': dir:.
+    'sonarqube.org/project-key': davgordo-open-idp_quarkus-service
+    'prometheus.io/alert': ErrorBudgetBurn-critical--prod-quarkus-service,ErrorBudgetBurn-warning--prod-quarkus-service
+    'prometheus.io/rule': virtual_service:_prod_quarkus-service:error_rate_1d,virtual_service:_prod_quarkus-service:error_rate_1h,virtual_service:_prod_quarkus-service:error_rate_2h,virtual_service:_prod_quarkus-service:error_rate_30m
+spec:
+  type: service
+  lifecycle: experimental
+  owner: "demo-team-a"
+  system: demo-app

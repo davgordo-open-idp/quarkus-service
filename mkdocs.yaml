@@ -1,0 +1,8 @@
+site_name: "quarkus-service"
+site_description: "A service written with the Quarkus framework"
+
+nav:
+  - Introduction: index.md
+
+plugins:
+  - techdocs-core

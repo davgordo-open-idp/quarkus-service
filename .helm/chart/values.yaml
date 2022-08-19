@@ -1,0 +1,4 @@
+quarkus-run:
+  fullnameOverride: quarkus-service
+  image:
+    repository: quay.io/davgordo-open-idp/quarkus-service
